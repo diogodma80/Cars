@@ -18,13 +18,4 @@ public class MyApplication extends Application {
 		properties.put("jersey.config.server.provider.packages", "ca.com.diogo");
 		return properties;
 	}
-
-	@Override
-	public Set<Object> getSingletons() {
-		Set<Object> singletons = new HashSet<>();
-		// Jettison driver to generate Json
-		singletons.add(new JettisonFeature());
-		return singletons;
-	}
-
 }

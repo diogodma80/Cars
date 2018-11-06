@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CarDao extends BaseDao {
 
 	// private Connection conn;
@@ -49,9 +52,9 @@ public class CarDao extends BaseDao {
 			if (rs != null) {
 				rs.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 
 		return null;
@@ -80,9 +83,9 @@ public class CarDao extends BaseDao {
 			if (stmt != null) {
 				stmt.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 		return cars;
 	}
@@ -109,9 +112,9 @@ public class CarDao extends BaseDao {
 			if (rs != null) {
 				rs.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 		return cars;
 	}
@@ -139,9 +142,9 @@ public class CarDao extends BaseDao {
 			if (stmt != null) {
 				stmt.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 
 		return cars;
@@ -204,9 +207,9 @@ public class CarDao extends BaseDao {
 			if (stmt != null) {
 				stmt.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 	}
 
@@ -224,9 +227,9 @@ public class CarDao extends BaseDao {
 			if (stmt != null) {
 				stmt.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
+//			if (conn != null) {
+//				conn.close();
+//			}
 		}
 	}
 }

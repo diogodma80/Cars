@@ -1,13 +1,15 @@
-App Engine application using Restful web services implemented with the Java API and Jersey.
+#App Engine application using Restful web services implemented with the Java API and Jersey. Maven used to manage package dependencies and Spring (@Component and @Autowired) used to manage class injection. 
 At this moment there is no UI for the web services.
 
-Get all the cars
+#Get all the cars
 GET http://localhost:8080/rest/cars
-----------
-Get the car id of 1
+
+
+#Get the car id of 1
 GET http://localhost:8080/rest/cars/1
-----------
-Post to save a new car
+
+
+#Post to save a new car
 POST http://localhost:8080/rest/cars
 Header Content-Type:application/json
 
@@ -22,12 +24,12 @@ Response body
   "status": "OK",
   "msg": "Car saved successfully"
 }
-----------
-Delete a car from database
+
+
+#Delete a car from database
 DELETE http://localhost:8080/cars/1
 
 {
   "status": "OK",
   "msg": "Car deleted successfully"
 }
-----------

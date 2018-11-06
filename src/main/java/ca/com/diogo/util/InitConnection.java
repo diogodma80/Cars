@@ -5,9 +5,11 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 
-import ca.com.diogo.domain.BaseDao;
-import ca.com.diogo.domain.CarService;
+import org.springframework.stereotype.Component;
 
+import ca.com.diogo.domain.BaseDao;
+
+@Component
 public class InitConnection {
 	Connection conn = null;
 	String url = null;

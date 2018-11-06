@@ -15,6 +15,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import ca.com.diogo.domain.Car;
 import ca.com.diogo.domain.CarService;
 import ca.com.diogo.domain.Response;
@@ -23,20 +26,26 @@ import ca.com.diogo.util.InitConnection;
 @Path("/cars")
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+@Component
 public class CarResources {
 
-	Connection conn = null;
+	//Connection conn = null;
 	String url = null;
 
-	private CarService carService = new CarService();
+	@Autowired
+	private CarService carService;
+	
+	@Autowired
+	private InitConnection conn;
 
 	public CarResources() throws ServletException {
-		new InitConnection();
+		//connection is now @Autowired
+		//new InitConnection();
 	}
 
 	@GET
 	public List<Car> get() throws ServletException {
-		new InitConnection();
+		//new InitConnection();
 		List<Car> cars = carService.getCars();
 		return cars;
 	}
@@ -79,27 +88,5 @@ public class CarResources {
 	public Response put(Car car) {
 		carService.save(car);
 		return Response.Ok("Car updates successfully");
-	}
-
-	private Car getCarFromRequest(HttpServletRequest request) {
-		// CarService carService = new CarService();
-		// create the car
-		Car car = new Car();
-		// get the id from the request
-		String id = request.getParameter("id");
-		// if the id was informed in the request
-		if (id != null) {
-			// if the id was informed, gets it from the database
-			car = this.carService.getCar(Long.parseLong(id));
-		}
-
-		car.setName(request.getParameter("name"));
-		car.setDesc(request.getParameter("description"));
-		car.setUrlPhoto(request.getParameter("url_photo"));
-		car.setUrlVideo(request.getParameter("url_video"));
-		car.setLatitude(request.getParameter("latitude"));
-		car.setLongitude(request.getParameter("longitude"));
-		car.setType(request.getParameter("type"));
-		return car;
 	}
 }

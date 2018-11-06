@@ -4,12 +4,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class CarService {
 
 	// private final static Logger LOGGER =
 	// Logger.getLogger(CarService.class.getName());
 
-	private CarDao dao = new CarDao();
+	@Autowired
+	private CarDao dao;
 
 	public CarService() {
 		super();
